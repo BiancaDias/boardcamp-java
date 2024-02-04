@@ -22,6 +22,9 @@ public class GameService {
   }
 
   public Optional<GameModel> save(GameDTO dto){
+
+    //TODO uma query no repository que retorna true ou false em caso de exista um game com o mesmo nome
+
     GameModel game = new GameModel(dto);
     return Optional.of(gameRepository.save(game));
   }
