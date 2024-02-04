@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import com.boardcamp.api.dtos.GameDTO;
+import com.boardcamp.api.exceptions.GameNameConflictException;
 import com.boardcamp.api.models.GameModel;
 import com.boardcamp.api.repository.GameRepository;
 
@@ -23,7 +24,9 @@ public class GameService {
 
   public Optional<GameModel> save(GameDTO dto){
 
-    //TODO uma query no repository que retorna true ou false em caso de exista um game com o mesmo nome
+    if(gameRepository.existsByName(dto.getName())) {
+      throw new GameNameConflictException("This game already exists!");
+    }
 
     GameModel game = new GameModel(dto);
     return Optional.of(gameRepository.save(game));
