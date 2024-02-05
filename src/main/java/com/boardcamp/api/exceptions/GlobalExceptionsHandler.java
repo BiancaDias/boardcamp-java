@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
 public class GlobalExceptionsHandler {
-  @ExceptionHandler({ GameNameConflictException.class })
-  public ResponseEntity<String> handlerGameNameConflict(GameNameConflictException exception) {
+  @ExceptionHandler({ NameConflictException.class })
+  public ResponseEntity<String> handlerGameNameConflict(NameConflictException exception) {
     return ResponseEntity.status(HttpStatus.CONFLICT).body(exception.getMessage());
   }
 }
