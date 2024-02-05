@@ -1,13 +1,15 @@
 package com.boardcamp.api.service;
 
-import java.util.List;
 import java.util.Optional;
+
+import org.springframework.stereotype.Service;
 
 import com.boardcamp.api.dtos.CustomerDTO;
 import com.boardcamp.api.exceptions.NotFoundException;
 import com.boardcamp.api.models.CustomerModel;
 import com.boardcamp.api.repository.CustomerRepository;
 
+@Service
 public class CustomerService {
   final CustomerRepository customerRepository;
 
