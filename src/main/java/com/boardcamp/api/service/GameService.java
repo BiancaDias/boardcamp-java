@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.boardcamp.api.dtos.GameDTO;
 import com.boardcamp.api.exceptions.NameConflictException;
+import com.boardcamp.api.exceptions.NotFoundException;
+import com.boardcamp.api.models.CustomerModel;
 import com.boardcamp.api.models.GameModel;
 import com.boardcamp.api.repository.GameRepository;
 
@@ -30,5 +32,11 @@ public class GameService {
 
     GameModel game = new GameModel(dto);
     return Optional.of(gameRepository.save(game));
+  }
+
+  public GameModel findById(Long id) {
+    return gameRepository.findById(id).orElseThrow(
+      () -> new NotFoundException("Game not found by this id")
+    );
   }
 }
