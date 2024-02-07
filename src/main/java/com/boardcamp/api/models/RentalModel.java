@@ -22,10 +22,10 @@ import lombok.NoArgsConstructor;
 public class RentalModel {
 
   public RentalModel(RentalDTO dto, int originalPrice) {
-    this.customerId = new CustomerModel();
-    this.customerId.setId(dto.getCustomerId());
-    this.gameId = new GameModel();
-    this.gameId.setId(dto.getGameId());
+    //this.customerId = new CustomerModel();
+    //this.customerId.setId(dto.getCustomerId());
+    //this.gameId = new GameModel();
+    //this.gameId.setId(dto.getGameId());
     this.daysRented = dto.getDaysRented();
     this.originalPrice = originalPrice;
     this.delayFee = 0;
