@@ -30,14 +30,14 @@ public class RentalModel {
     this.gameId.setId(dto.getGameId());
     this.daysRented = dto.getDaysRented();
     this.originalPrice = originalPrice;
-    this.delayFee = 0;
+    this.delayFee = 0L;
     this.rentDate = LocalDate.now();
   }
 
   public RentalModel(RentalDTO dto, CustomerModel customer, GameModel game, int originalPrice){
     this.daysRented = dto.getDaysRented();
     this.originalPrice = originalPrice;
-    this.delayFee = 0;
+    this.delayFee = 0L;
     this.customerId = customer;
     this.gameId = game;
     this.rentDate = LocalDate.now();
@@ -60,7 +60,7 @@ public class RentalModel {
   private int originalPrice;
 
   @Column(nullable = false)
-  private int delayFee;
+  private Long delayFee;
 
   @ManyToOne
   @JoinColumn(name = "customer")

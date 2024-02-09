@@ -13,8 +13,13 @@ public class GlobalExceptionsHandler {
   }
 
   @ExceptionHandler({ NotFoundException.class })
-public ResponseEntity<String> handlerNotFound(NotFoundException exception) {
-  return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
-}
+  public ResponseEntity<String> handlerNotFound(NotFoundException exception) {
+    return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
+  }
+
+  @ExceptionHandler({ UnprocessableEntityException.class })
+  public ResponseEntity<String> handlerUnprocEntity(UnprocessableEntityException exception) {
+    return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body(exception.getMessage());
+  }
 }
 
