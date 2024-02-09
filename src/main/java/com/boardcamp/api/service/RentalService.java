@@ -56,7 +56,7 @@ public class RentalService {
       () -> new NotFoundException("Rental not fount")
     );
     
-    if(rental.getRentDate() == null) {
+    if(rental.getReturnDate() != null) {
       
       throw new UnprocessableEntityException("This game is already finish");
     }
